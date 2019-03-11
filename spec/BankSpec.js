@@ -14,7 +14,7 @@ describe('Bank', function() {
   });
 
   it('contains an array of accounts', function() {
-    let newBank = new Bank;
+    const newBank = new Bank;
     expect(newBank.accounts.length).toEqual(0);
   });
 
@@ -28,9 +28,9 @@ describe('Bank', function() {
 
   describe('#precise', function() {
     it('returns things as strings to 2 sig figs', function() {
-      expect(bank.precise(3)).toEqual('3.00')
-      expect(bank.precise(0.03)).toEqual('0.03')
-      expect(bank.precise(3000)).toEqual('3000.00')
-    })
-  })
+      expect(bank.precise(3)).toEqual('3.00');
+      expect(bank.precise(0.03)).toEqual('0.03');
+      expect(bank.precise(3000)).toEqual('3000.00');
+    });
+  });
 });

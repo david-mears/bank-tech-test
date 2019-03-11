@@ -36,5 +36,4 @@ describe('Transaction', function() {
     const transaction3 = new Transaction(-900);
     expect(transaction3.date).toEqual(date3);
   });
-
 });
