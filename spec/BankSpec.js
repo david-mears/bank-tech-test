@@ -20,12 +20,12 @@ describe('Bank', function() {
     const date = new Date(2017, 1, 1);
     jasmine.clock().mockDate(date);
     bank.openAccount();
-    bank.accounts[0].deposit(50)
+    bank.accounts[0].deposit(50);
     expect(bank.accounts[0].history.length).toEqual(1);
     expect(bank.accounts[0].history[0].date).toEqual(date);
-  })
+  });
 
-  it('displays the dates from the history of an account in reverse order', function() {
+  it('displays dates in history of an account in reverse order', function() {
 
-  })
+  });
 });

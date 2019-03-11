@@ -9,6 +9,8 @@ function Bank(accountConstructor = ClientAccount) {
 }
 
 Bank.prototype.openAccount = function(transactionConstructor = Transaction) {
-  let account = new this.accountConstructor(transactionConstructor);
-  this.accounts.push(account)
-}
+  /* eslint-disable new-cap */
+  const account = new this.accountConstructor(transactionConstructor);
+  /* eslint-enable new-cap */
+  this.accounts.push(account);
+};
