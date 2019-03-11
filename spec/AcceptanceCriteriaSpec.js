@@ -1,3 +1,5 @@
+'use strict';
+
 describe('Acceptance Criteria', function() {
   let clientAccount;
 

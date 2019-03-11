@@ -1,3 +1,4 @@
+'use strict';
 describe('Transaction', function() {
 
   beforeEach(function() {
