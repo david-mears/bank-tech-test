@@ -74,4 +74,5 @@ describe('ClientAccount', function() {
       expect(clientAccount.balance()).toEqual(5+500-5-5+5-5+5);
     });
   });
+  
 });

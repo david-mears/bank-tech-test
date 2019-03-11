@@ -16,9 +16,10 @@ describe('Acceptance Criteria', function() {
   });
 
   it('Acceptance Criteria', function() {
-    const date1 = new Date(2012, 1, 10);
-    const date2 = new Date(2012, 1, 13);
-    const date3 = new Date(2012, 1, 14);
+    // Months are zero-based in JS.
+    const date1 = new Date(2012, 0, 10);
+    const date2 = new Date(2012, 0, 13);
+    const date3 = new Date(2012, 0, 14);
     jasmine.clock().mockDate(date1);
     clientAccount.deposit(1000);
     jasmine.clock().mockDate(date2);

@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "tech test practice",
   "main": "README.md",
-  "dependencies": {},
+  "dependencies": {
+    "moment": "^2.24.0"
+  },
   "devDependencies": {
     "eslint": "^5.15.1",
     "eslint-config-google": "^0.12.0",
