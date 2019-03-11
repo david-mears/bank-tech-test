@@ -1,0 +1,25 @@
+{
+  "name": "bank",
+  "version": "1.0.0",
+  "description": "tech test practice",
+  "main": "README.md",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^5.15.1",
+    "eslint-config-google": "^0.12.0",
+    "jasmine": "^3.3.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/david-mears/bank-tech-test.git"
+  },
+  "author": "David Mears",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/david-mears/bank-tech-test/issues"
+  },
+  "homepage": "https://github.com/david-mears/bank-tech-test#readme"
+}
