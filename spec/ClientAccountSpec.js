@@ -24,6 +24,7 @@ describe('ClientAccount', function() {
       const transaction = clientAccount.history[0];
       expect(transaction.date).toEqual(date);
       expect(transaction.balanceChange).toEqual(33);
+      expect(transaction.balanceSoFar).toEqual(33);
     });
   });
 
@@ -36,18 +37,40 @@ describe('ClientAccount', function() {
       const transaction = clientAccount.history[0];
       expect(transaction.date).toEqual(date);
       expect(transaction.balanceChange).toEqual(-5);
+      expect(transaction.balanceSoFar).toEqual(-5);
     });
   });
 
   describe('#balance', function() {
     it('tots up all withdrawals and deposits in history', function() {
       clientAccount.deposit(5);
+      expect(
+        clientAccount.history[clientAccount.history.length-1].balanceSoFar
+      ).toEqual(5)
       clientAccount.deposit(500);
+      expect(
+        clientAccount.history[clientAccount.history.length-1].balanceSoFar
+      ).toEqual(505)
       clientAccount.withdraw(5);
+      expect(
+        clientAccount.history[clientAccount.history.length-1].balanceSoFar
+      ).toEqual(500)
       clientAccount.withdraw(5);
+      expect(
+        clientAccount.history[clientAccount.history.length-1].balanceSoFar
+      ).toEqual(495)
       clientAccount.deposit(5);
-      clientAccount.withdraw(5);
-      clientAccount.deposit(5);
+      expect(
+        clientAccount.history[clientAccount.history.length-1].balanceSoFar
+      ).toEqual(500)
+      clientAccount.withdraw(7);
+      expect(
+        clientAccount.history[clientAccount.history.length-1].balanceSoFar
+      ).toEqual(493)
+      clientAccount.deposit(7);
+      expect(
+        clientAccount.history[clientAccount.history.length-1].balanceSoFar
+      ).toEqual(500)
       expect(clientAccount.balance()).toEqual(5+500-5-5+5-5+5);
     });
   });

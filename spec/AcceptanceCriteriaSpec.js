@@ -1,11 +1,13 @@
 'use strict';
 
 describe('Acceptance Criteria', function() {
+  let bank;
   let clientAccount;
 
   beforeEach(function() {
     bank = new Bank;
-    clientAccount = new ClientAccount();
+    bank.openAccount();
+    clientAccount = bank.accounts[0];
     jasmine.clock().install;
   });
 

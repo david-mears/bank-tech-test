@@ -15,6 +15,13 @@ describe('Transaction', function() {
     expect(transaction2.balanceChange).toEqual(-100);
   });
 
+  it('should initialize with balanceSoFar undefined', function() {
+    const transaction1 = new Transaction(100);
+    expect(transaction1.balanceSoFar).toEqual(undefined);
+    const transaction2 = new Transaction(-100);
+    expect(transaction2.balanceSoFar).toEqual(undefined);
+  });
+
   it('should record the date when it is created', function() {
     const date1 = new Date(2019, 1, 10);
     const date2 = new Date(2019, 1, 13);
@@ -29,4 +36,5 @@ describe('Transaction', function() {
     const transaction3 = new Transaction(-900);
     expect(transaction3.date).toEqual(date3);
   });
+
 });

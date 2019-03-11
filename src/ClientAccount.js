@@ -13,13 +13,14 @@ ClientAccount.prototype.deposit = function(amount) {
   const transaction = new this.transactionConstructor(amount);
   /* eslint-enable new-cap */
   this.history.push(transaction);
+  transaction.balanceSoFar = this.balance();
 };
 
 ClientAccount.prototype.withdraw = function(amount) {
   this.deposit(-amount);
 };
 
-ClientAccount.prototype.balance = function(amount) {
+ClientAccount.prototype.balance = function() {
   let balance = 0;
   let i;
   for (i = 0; i < this.history.length; i++) {

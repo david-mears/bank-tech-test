@@ -25,8 +25,4 @@ describe('Bank', function() {
     expect(bank.accounts[0].history.length).toEqual(1);
     expect(bank.accounts[0].history[0].date).toEqual(date);
   });
-
-  it('displays dates in history of an account in reverse order', function() {
-
-  });
 });
