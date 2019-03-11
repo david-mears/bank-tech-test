@@ -1,5 +1,6 @@
 /**
  * @constructor
  */
-function Transaction() {
+function Transaction(balanceChange) {
+  this.balanceChange = balanceChange;
 }
