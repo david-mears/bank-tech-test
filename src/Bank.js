@@ -3,5 +3,7 @@
 /**
  * @constructor
  */
-function Bank() {
+function Bank(accountConstructor = ClientAccount) {
+  this.accounts = [];
+  this.accountConstructor = accountConstructor;
 }
