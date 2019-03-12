@@ -1,10 +1,19 @@
 'use strict';
 describe('ClientAccount', function() {
   let clientAccount;
+  let transaction1;
+  let transaction2;
 
   beforeEach(function() {
     jasmine.clock().install;
-    clientAccount = new ClientAccount();
+    // I couldn't find a way to mock the properties of instances in JS,
+    // so here is a constructor function I made for this purpose.
+    function MockTransactionConstructor() {
+      this.balanceChange = 300
+    }
+    clientAccount = new ClientAccount(MockTransactionConstructor)
+    transaction1 = new MockTransactionConstructor;
+    transaction2 = new MockTransactionConstructor;
   });
 
   afterEach(function() {
@@ -12,66 +21,39 @@ describe('ClientAccount', function() {
   });
 
   it('initializes with empty list of transactions', function() {
-    expect(clientAccount.history).toEqual([]);
-  });
-
-  describe('#deposit', function() {
-    it('creates a new Transaction in history with correct data', function() {
-      const date = new Date(2000, 12, 25);
-      jasmine.clock().mockDate(date);
-      clientAccount.deposit(33);
-      expect(clientAccount.history.length).toEqual(1);
-      const transaction = clientAccount.history[0];
-      expect(transaction.date).toEqual(date);
-      expect(transaction.balanceChange).toEqual(33);
-      expect(transaction.balanceSoFar).toEqual(33);
-    });
-  });
-
-  describe('#withdraw', function() {
-    it('creates a new Transaction in history with correct data', function() {
-      const date = new Date(2007, 7, 7);
-      jasmine.clock().mockDate(date);
-      clientAccount.withdraw(5);
-      expect(clientAccount.history.length).toEqual(1);
-      const transaction = clientAccount.history[0];
-      expect(transaction.date).toEqual(date);
-      expect(transaction.balanceChange).toEqual(-5);
-      expect(transaction.balanceSoFar).toEqual(-5);
-    });
+    let newClientAccount = new ClientAccount(
+      'argument to block default dependency injection'
+    );
+    expect(newClientAccount.history).toEqual([]);
   });
 
   describe('#balance', function() {
-    it('tots up all withdrawals and deposits in history', function() {
-      clientAccount.deposit(5);
-      expect(
-          clientAccount.history[clientAccount.history.length-1].balanceSoFar
-      ).toEqual(5);
-      clientAccount.deposit(500);
-      expect(
-          clientAccount.history[clientAccount.history.length-1].balanceSoFar
-      ).toEqual(505);
-      clientAccount.withdraw(5);
-      expect(
-          clientAccount.history[clientAccount.history.length-1].balanceSoFar
-      ).toEqual(500);
-      clientAccount.withdraw(5);
-      expect(
-          clientAccount.history[clientAccount.history.length-1].balanceSoFar
-      ).toEqual(495);
-      clientAccount.deposit(5);
-      expect(
-          clientAccount.history[clientAccount.history.length-1].balanceSoFar
-      ).toEqual(500);
-      clientAccount.withdraw(7);
-      expect(
-          clientAccount.history[clientAccount.history.length-1].balanceSoFar
-      ).toEqual(493);
-      clientAccount.deposit(7);
-      expect(
-          clientAccount.history[clientAccount.history.length-1].balanceSoFar
-      ).toEqual(500);
-      expect(clientAccount.balance()).toEqual(5+500-5-5+5-5+5);
+    it('tots up all balanceChange attributes in history array', function() {
+      clientAccount.history.push(transaction1)
+      clientAccount.history.push(transaction2)
+      expect(clientAccount.balance()).toEqual(600)
+    });
+  });
+
+  // further deposit functionality is tested in the integration spec
+  describe('#deposit', function() {
+    it('creates a new TransactionConstructor in history, with a balance', function() {
+      spyOn(clientAccount, 'balance').and.returnValue(1000)
+      clientAccount.deposit(1)
+      expect(clientAccount.history.length).toEqual(1);
+      const transaction = clientAccount.history[0];
+      expect(transaction.balanceSoFar).toEqual(1000);
+    });
+  });
+
+// further withdraw functionality is tested in the integration spec
+  describe('#withdraw', function() {
+    it('creates a new TransactionConstructor in history, with a balance', function() {
+      spyOn(clientAccount, 'balance').and.returnValue(1000)
+      clientAccount.withdraw(1)
+      expect(clientAccount.history.length).toEqual(1);
+      const transaction = clientAccount.history[0];
+      expect(transaction.balanceSoFar).toEqual(1000);
     });
   });
 });
