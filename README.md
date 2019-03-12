@@ -9,6 +9,8 @@ I decided to use JavaScript, to revise after two weeks of Ruby, and the Jasmine 
 This was specified as a command line or console app.
 
 ```bash
+> git clone https://github.com/david-mears/bank-tech-test.git
+> cd bank-tech-test
 > open SpecRunner.html
 ```
 
