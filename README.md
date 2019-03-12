@@ -11,6 +11,7 @@ This was specified as a command line or console app.
 ```bash
 > git clone https://github.com/david-mears/bank-tech-test.git
 > cd bank-tech-test
+> npm install
 > open SpecRunner.html
 ```
 
