@@ -13,6 +13,7 @@ Bank.prototype.openAccount = function(transactionConstructor = Transaction) {
   const account = new this.accountConstructor(transactionConstructor);
   /* eslint-enable new-cap */
   this.accounts.push(account);
+  return account;
 };
 
 Bank.prototype.statement = function(account) {

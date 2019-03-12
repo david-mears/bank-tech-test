@@ -4,6 +4,28 @@ The instructions were [here](https://github.com/makersacademy/course/blob/master
 
 I decided to use JavaScript, to revise after two weeks of Ruby, and the Jasmine testing framework since I wasn't going to be using a browser (REPL interface, so Node.js runtime environment). I decided to follow the [Google JavaScript Style Guide](https://google.github.io/styleguide/javascriptguide.xml), checking this with the [associated ESLint config](https://github.com/google/eslint-config-google).
 
+## Usage
+
+This was specified as a command line or console app.
+
+```bash
+> open SpecRunner.html
+```
+
+Then open the developer console.
+
+```JavaScript
+> let bank = new Bank
+< undefined
+> let account = bank.openAccount()
+< undefined
+> account.deposit(123)
+< undefined
+> bank.statement(account)
+< "date || credit || debit || balance
+12/03/2019 || 123.00 || || 123.00"
+```
+
 ## Plan
 
 ### Transaction
