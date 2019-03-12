@@ -5,7 +5,6 @@ describe('ClientAccount', function() {
   let transaction2;
 
   beforeEach(function() {
-    jasmine.clock().install;
     // I couldn't find a way to mock the properties of instances in JS,
     // so here is a constructor function I made for this purpose.
     function MockTransactionConstructor() {
@@ -15,11 +14,7 @@ describe('ClientAccount', function() {
     transaction1 = new MockTransactionConstructor;
     transaction2 = new MockTransactionConstructor;
   });
-
-  afterEach(function() {
-    jasmine.clock().uninstall();
-  });
-
+  
   it('initializes with empty list of transactions', function() {
     let newClientAccount = new ClientAccount(
       'argument to block default dependency injection'

@@ -13,7 +13,7 @@ describe('ClientAccount', function() {
 
   describe('#deposit', function() {
     it('creates a new transactionConstructor in history with correct data', function() {
-      const date = new Date(2000, 12, 25);
+      const date = new Date(2000, 11, 25);
       jasmine.clock().mockDate(date);
       clientAccount.deposit(33);
       expect(clientAccount.history.length).toEqual(1);
