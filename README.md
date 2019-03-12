@@ -24,8 +24,8 @@ Then open the developer console.
 > account.deposit(123)
 < undefined
 > bank.statement(account)
-< "date || credit || debit || balance
-12/03/2019 || 123.00 || || 123.00"
+< "date || credit || debit || balance"
+"12/03/2019 || 123.00 || || 123.00"
 ```
 
 ## Plan
