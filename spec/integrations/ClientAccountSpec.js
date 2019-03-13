@@ -12,7 +12,7 @@ describe('ClientAccount', function() {
   });
 
   describe('#deposit', function() {
-    it('creates a new transactionConstructor in history with correct data', function() {
+    it('makes a transactionConstructor in history w/ correct data', function() {
       const date = new Date(2000, 11, 25);
       jasmine.clock().mockDate(date);
       clientAccount.deposit(33);
@@ -25,7 +25,7 @@ describe('ClientAccount', function() {
   });
 
   describe('#withdraw', function() {
-    it('creates a new transactionConstructor in history with correct data', function() {
+    it('makes a transactionConstructor in history w/ correct data', function() {
       const date = new Date(2007, 7, 7);
       jasmine.clock().mockDate(date);
       clientAccount.withdraw(5);
