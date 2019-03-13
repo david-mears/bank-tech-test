@@ -1,13 +1,8 @@
 'use strict';
 
 describe('Acceptance Criteria', function() {
-  let bank;
-  let clientAccount;
 
   beforeEach(function() {
-    bank = new Bank;
-    bank.openAccount();
-    clientAccount = bank.accounts[0];
     jasmine.clock().install;
   });
 
@@ -16,6 +11,8 @@ describe('Acceptance Criteria', function() {
   });
 
   it('Acceptance Criteria', function() {
+    let clientAccount = new ClientAccount;
+    let statement = new Statement;
     // Months are zero-based in JS.
     const date1 = new Date(2012, 0, 10);
     const date2 = new Date(2012, 0, 13);
@@ -28,7 +25,7 @@ describe('Acceptance Criteria', function() {
     clientAccount.withdraw(500);
     /* eslint-disable max-len */
     expect(
-        bank.statement(clientAccount)
+        statement.display(clientAccount)
     ).toEqual(
         'date || credit || debit || balance\n14/01/2012 || || 500.00 || 2500.00\n13/01/2012 || 2000.00 || || 3000.00\n10/01/2012 || 1000.00 || || 1000.00'
     );

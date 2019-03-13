@@ -21,6 +21,8 @@ Then open the developer console.
 
 ## Plan
 
+My original plan was as follows:
+
 ### Transaction
 
 - two data points (variables) for each transaction: change (+/-) in balance, and date.
@@ -35,3 +37,11 @@ Then open the developer console.
 
 - contains array of accounts
 - functions: displaying info about accounts
+
+Later addition:
+
+### Statement
+
+When I saw that Bank was a long class - over 50 lines - that flagged that I had given it too many responsibilities. I decided to extract Bank's display functionality to a separate class, Statement.
+
+This in turn revealed that the remaining functionality on Bank - the ability to create an account and contain a list of accounts - is not actually from the requirements. I don't need the Bank constructor function at all. Or rather, instead of extracting the display functionality from Bank, it would have been quicker to just remove the account listing and creating functions.
