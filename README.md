@@ -21,7 +21,7 @@ Then open the developer console.
 
 ```
 
-![](images/Screenshot 2019-03-13 at 12.42.21.png)
+![](images/screenshot.png)
 
 ## Plan
 
