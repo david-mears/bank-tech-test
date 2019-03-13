@@ -17,11 +17,7 @@ This was specified as a command line or console app.
 
 Then open the developer console.
 
-```JavaScript
-
-```
-
-![](images/screeenshot.png)
+![> let bank = new Bank < undefined > let account = bank.openAccount() < undefined > account.deposit(123) < undefined > bank.statement(account) < "date || credit || debit || balance" "12/03/2019 || 123.00 || || 123.00](images/screeenshot.png)
 
 ## Plan
 
