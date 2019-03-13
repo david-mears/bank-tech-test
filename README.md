@@ -21,7 +21,7 @@ Then open the developer console.
 
 ```
 
-![](images/screenshot.png)
+![](images/screeenshot.png)
 
 ## Plan
 
