@@ -4,7 +4,7 @@
   "description": "tech test practice",
   "main": "README.md",
   "dependencies": {
-    "moment": "^2.24.0"
+    "moment": "^2.29.4"
   },
   "devDependencies": {
     "eslint": "^5.15.1",
